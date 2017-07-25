@@ -17,21 +17,7 @@ public class WaitingChitRestController {
 	
 	@Autowired
 	private mailService mailService;
-	
-//	@RequestMapping(value="/addtwotoone", method={RequestMethod.GET})
-//	public List addtwotoone(){
-//		 List a1 = new ArrayList();
-//	      a1.add("addtwotoone response");
-//		return a1;
-//	}
-//	
-//	@RequestMapping(value="/addfourabove", method={RequestMethod.GET})
-//	public List addfourabove(){
-//		 List a1 = new ArrayList();
-//	      a1.add("addfourabove response");
-//		return a1;
-//	}
-	
+		
 	
 	@RequestMapping(value="/getWaitList", method={RequestMethod.GET})
 	public List<Customer> getWaitList(){
@@ -39,7 +25,7 @@ public class WaitingChitRestController {
 		
 	}
 	
-	@RequestMapping(value="/addonetotwo", method={RequestMethod.POST})
+	@RequestMapping(value="/addQueueA", method={RequestMethod.POST})
 	public void addonetotwo(@RequestBody String mail){
 		waitListService.addCustomer(mail);
 		mailService.sendEmailToNewCustomer(waitListService.getLastCustomerInWaitList());
